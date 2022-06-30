@@ -1,0 +1,16 @@
+.sign__redirect-button{
+  border-bottom: none;
+  text-decoration: none;
+  padding: 0;
+  background-color: rgba(0,0,0,0);
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sign__redirect-button:hover{
+  opacity: 0.6;
+}

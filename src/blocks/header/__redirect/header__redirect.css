@@ -1,0 +1,12 @@
+.header__redirect{
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.header__redirect:hover{
+  opacity: 0.6;
+}

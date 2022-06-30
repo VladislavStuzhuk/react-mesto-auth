@@ -1,0 +1,13 @@
+.profile__title{
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+@media screen and (max-width: 768px){
+  .profile__title{
+    font-size: 27px;
+    line-height: 33px;
+    margin-bottom: 14px;
+  }
+}
