@@ -76,32 +76,39 @@ function App() {
   function handleUpdateUser(data) {
     api.patchUserInfo(data).
     then(data => setCurrentUser(data)).
-    then(closeAllPopups())
+    then(closeAllPopups()).
+    catch(err => console.log(err));
   }
   
   function handleUpdateAvatar(data){
     api.patchUserAvatar(data).
     then(data => setCurrentUser(data)).
-    then(closeAllPopups())
+    then(closeAllPopups()).
+    catch(err => console.log(err));
   }
   
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-     api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
-        setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
-    });
+     api.changeLikeCardStatus(card._id, isLiked).
+       then((newCard) => {
+       setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
+       }).
+       catch(err => console.log(err));
   }
   
   function handleCardDelete(card) {
-    api.deleteCard(card._id).then(
+    api.deleteCard(card._id).
+      then(
       setCards((state) => state.filter((item) => item._id !== card._id))
-    )
+      ).
+      catch(err => console.log(err));
   }
   
   function handleAddImageSubmit(data){
     api.postNewCard(data).
       then(newCard => setCards([newCard, ...cards])).
-      then(closeAllPopups())
+      then(closeAllPopups()).
+      catch(err => console.log(err))
   }
   
   function handleRegister(data){

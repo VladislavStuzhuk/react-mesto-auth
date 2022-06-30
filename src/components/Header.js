@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../images/logo/header-logo.svg';
-import { useLocation, Link} from 'react-router-dom';
+import { useLocation, Route, Link} from 'react-router-dom';
 function Header(props) {
   const{
     loggedIn,
@@ -9,26 +9,24 @@ function Header(props) {
   } = props
   const location = useLocation();
   
-  let redirectLocation = "";
-  let text = "";
-  switch(location.pathname){
-    case '/sign-up':
-      redirectLocation = '/sign-in'
-      text= 'Войти'
-      break;
-    case '/sign-in':
-      redirectLocation = '/sign-up'
-      text= 'Регистрация'
-      break;
-  }
   return (
     <header className="header">
       <img className="header__logo" src={logo} alt="Место" />
      <div className="header__container">
         {!loggedIn ? 
-          <Link className="header__redirect" to={redirectLocation}>
-            {text}
-          </Link> :
+          <>
+            <Route path="/sign-up">
+              <Link className="header__redirect" to="/sign-in"> 
+                Войти 
+              </Link>
+            </Route>
+            <Route path="/sign-in">
+              <Link className="header__redirect" to="/sign-up"> 
+                Регистрация 
+              </Link>
+            </Route>
+          </>
+          :
           <>
             <p className="header__email">{email}</p>
             <button onClick={onSignOut} className="header__sign-out">Выйти</button>
