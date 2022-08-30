@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory, Route, Switch } from 'react-router-dom';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import api from '../utils/api.js'
-import auth from '../utils/auth.js'
-import ImagePopup from './ImagePopup';
+import React, { useEffect, useState } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import api from '../utils/api.js';
+import auth from '../utils/auth.js';
 import AddImagePopup from './AddImagePopup';
-import EditAvatarPopup from './EditAvatarPopup';
 import DeletePopup from './DeletePopup';
+import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
-import Register from './Register';
-import Login from './Login';
-import ProtectedRoute from './ProtectedRoute';
+import Footer from './Footer';
+import Header from './Header';
+import ImagePopup from './ImagePopup';
 import InfoTooltip from './InfoTooltip';
+import Login from './Login';
+import Main from './Main';
+import ProtectedRoute from './ProtectedRoute';
+import Register from './Register';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
@@ -181,7 +181,7 @@ function App() {
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
           />
-        </Switch>
+        </Switch> 
         <EditProfilePopup 
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups} 
